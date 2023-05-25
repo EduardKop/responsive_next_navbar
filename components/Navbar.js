@@ -3,6 +3,7 @@ import Image from "next/image";
 import React, { useState } from "react";
 import Logo from "./Logo";
 import NavItem from "./NavItem";
+import styles from '../styles/navbar.module.scss'
 
 const MENU_LIST = [
   { text: "Home", href: "/" },
@@ -15,21 +16,21 @@ const Navbar = () => {
 
   return (
     <header>
-      <nav className={`nav`}>
+      <nav className={styles.nav}>
         <Link href={"/"}>
           <a>
-            <h1 className="logo">Templates</h1>
+            <Logo />
           </a>
         </Link>
         <div
           onClick={() => setNavActive(!navActive)}
-          className={`nav__menu-bar`}
+          className={styles.nav__menu_bar}
         >
           <div></div>
           <div></div>
           <div></div>
         </div>
-        <div className={`${navActive ? "active" : ""} nav__menu-list`}>
+        <div className={`${navActive ? styles.active : ''} ${styles.nav__menu_list}`}>
           {MENU_LIST.map((menu, idx) => (
             <div
               onClick={() => {
